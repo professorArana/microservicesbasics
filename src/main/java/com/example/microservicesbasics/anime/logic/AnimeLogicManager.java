@@ -1,0 +1,23 @@
+package com.example.microservicesbasics.anime.logic;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+@Component
+public class AnimeLogicManager {
+	@Value("${animeApiUrl:https://jsonplaceholder.typicode.com/users}")
+	private String animeApiUrl;
+	@Value("${animeApiKey:}")
+	private String animeApiKey;
+	@Value("${animeApiTags:}")
+	private String animeApiTags;
+
+	public String obtainAnimeApiImageUrl() {
+		String apiUrl = animeApiUrl + animeApiKey + animeApiTags;
+		RestTemplate rest = new RestTemplate();
+		ResponseEntity<String> response = rest.getForEntity(apiUrl, String.class);
+		return response.getBody();
+	}
+}
