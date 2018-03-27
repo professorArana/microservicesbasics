@@ -1,9 +1,8 @@
 package com.example.microservicesbasics.kittens.web;
 
 public class KittensWebResult {
-	private String id;
-	private String name;
 	private String apiUrl;
+	private String oAuthToken;
 
 	public String getApiUrl() {
 		return apiUrl;
@@ -13,20 +12,12 @@ public class KittensWebResult {
 		this.apiUrl = apiUrl;
 	}
 
-	public String getId() {
-		return id;
+	public String getoAuthToken() {
+		return oAuthToken;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setoAuthToken(String oAuthToken) {
+		this.oAuthToken = oAuthToken;
 	}
 
 }
